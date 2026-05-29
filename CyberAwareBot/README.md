@@ -33,8 +33,6 @@ A polished WPF chatbot designed to teach cybersecurity best practices through a 
 
 ### Build Steps
 1. Open the `CyberAwareBot` project folder.
-2. Run `dotnet build`.
-3. Run `dotnet run`.
 
 ### Running the App
 1. Launch the application.
@@ -84,7 +82,6 @@ If submitting to ARC, include the above GitHub link and your YouTube demo link i
 
 YouTube Video Demo: https://youtu.be/PCWVSgsUzIA?si=J9yzzO7IJ4WFapTH
 
-> Replace the video link above with your actual presentation URL when available.
 
 ## Notes
 
@@ -94,3 +91,7 @@ YouTube Video Demo: https://youtu.be/PCWVSgsUzIA?si=J9yzzO7IJ4WFapTH
 ## License
 
 Educational project - feel free to use and modify for learning and demonstration purposes.
+
+## Purpose
+
+This project demonstrates object-oriented programming, human-computer interaction, and cybersecurity awareness through an interactive chatbot system.
