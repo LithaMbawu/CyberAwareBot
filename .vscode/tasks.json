@@ -5,7 +5,10 @@
       "label": "build",
       "command": "dotnet",
       "type": "process",
-      "args": ["build", "CyberAwareBot.csproj"],
+      "args": [
+        "build",
+        "${workspaceFolder}/CyberAwareBot.csproj"
+      ],
       "problemMatcher": "$msCompile",
       "group": {
         "kind": "build",
