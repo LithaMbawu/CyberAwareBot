@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{5C1EA8BA-0D1A-4553-A09D-F5D50874E253}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UIHelper.cs">
+    <Files>
+      <File FileName="AudioPlayer.cs" />
+      <File FileName="Chatbot.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="UIHelper.cs" Line="19" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CyberAwareBot">
+            <Node name="CyberAwareBot">
+              <Node name="UIHelper.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/lithambawu/Projects/CyberAwareBot/CyberAwareBot/UIHelper.cs" relfile="UIHelper.cs" line="18" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.CyberAwareBot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
