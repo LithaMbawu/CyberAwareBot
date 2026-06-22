@@ -7,14 +7,15 @@
       "request": "attach"
     },
     {
-      "name": "Launch CyberAwareBot (Avalonia)",
+      "name": "Launch CyberAwareBot (macOS via dotnet)",
       "type": "coreclr",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/Debug/net8.0/CyberAwareBot.dll",
-      "args": [],
-      "cwd": "${workspaceFolder}",
+      "program": "dotnet",
+      "args": ["${workspaceFolder}/CyberAwareBot/bin/Debug/net8.0/CyberAwareBot.dll"],
+      "cwd": "${workspaceFolder}/CyberAwareBot",
       "console": "integratedTerminal",
-      "stopAtEntry": false
+      "stopAtEntry": false,
+      "preLaunchTask": "build"
     }
   ]
 }

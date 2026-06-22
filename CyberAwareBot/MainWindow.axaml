@@ -1,0 +1,217 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="CybersecurityChatbot.MainWindow"
+        Title="Cybersecurity Awareness Chatbot"
+        Height="860"
+        Width="1240"
+        Background="#111827"
+        WindowStartupLocation="CenterScreen">
+  <Window.Resources>
+    <LinearGradientBrush x:Key="WindowBackdrop" StartPoint="0,0" EndPoint="1,1">
+      <GradientStop Color="#111827" Offset="0"/>
+      <GradientStop Color="#0F172A" Offset="0.6"/>
+      <GradientStop Color="#1E293B" Offset="1"/>
+    </LinearGradientBrush>
+  </Window.Resources>
+  <Window.Styles>
+    <Style Selector="Border.panel">
+      <Setter Property="Background" Value="#0F172A"/>
+      <Setter Property="CornerRadius" Value="14"/>
+      <Setter Property="Padding" Value="14"/>
+      <Setter Property="BorderBrush" Value="#1E3A5F"/>
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="TextBlock.section-title">
+      <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+      <Setter Property="FontSize" Value="18"/>
+      <Setter Property="Foreground" Value="#F8FAFC"/>
+    </Style>
+    <Style Selector="TextBlock.chat-text">
+      <Setter Property="FontFamily" Value="Segoe UI"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Foreground" Value="#E2E8F0"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    <Style Selector="TextBox.input">
+      <Setter Property="FontFamily" Value="Segoe UI"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Background" Value="#0F172A"/>
+      <Setter Property="Foreground" Value="#F8FAFC"/>
+      <Setter Property="BorderBrush" Value="#38BDF8"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="8"/>
+    </Style>
+    <Style Selector="Button.button">
+      <Setter Property="FontFamily" Value="Segoe UI"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Background" Value="#38BDF8"/>
+      <Setter Property="Foreground" Value="#08111F"/>
+      <Setter Property="BorderBrush" Value="#7DD3FC"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="12,6"/>
+      <Setter Property="Margin" Value="5,0,5,0"/>
+      <Setter Property="MinWidth" Value="100"/>
+    </Style>
+  </Window.Styles>
+
+  <Grid Background="{StaticResource WindowBackdrop}" Margin="14">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Border Grid.Row="0" Classes="panel" Margin="0,0,0,12">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+          <TextBlock Text="Cybersecurity Awareness Chatbot" Classes="section-title"/>
+          <TextBlock Text="Task assistant, quiz mode, NLP-style command detection, and action logging in one GUI." Foreground="#CBD5E1" Margin="0,6,0,0" TextWrapping="Wrap"/>
+        </StackPanel>
+        <TextBlock x:Name="AsciiArtText" Grid.Column="1" FontFamily="Courier New" FontSize="12" Foreground="#67E8F9" TextAlignment="Right" Margin="12,0,0,0"/>
+      </Grid>
+    </Border>
+
+    <TabControl x:Name="MainTabControl" Grid.Row="1" Margin="0,0,0,12" Background="#111827" BorderBrush="#334155" Foreground="#E2E8F0">
+      <TabItem Header="Chat">
+        <Grid Margin="14">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Border Classes="panel" Margin="0,0,0,12">
+            <TextBlock Text="Type cybersecurity questions, task requests, quiz commands, or activity log requests." Foreground="#CBD5E1" TextWrapping="Wrap"/>
+          </Border>
+          <Border Grid.Row="1" Classes="panel">
+            <ScrollViewer x:Name="ChatScrollViewer" VerticalScrollBarVisibility="Auto">
+              <TextBlock x:Name="ChatHistoryTextBlock" Classes="chat-text"/>
+            </ScrollViewer>
+          </Border>
+        </Grid>
+      </TabItem>
+
+      <TabItem Header="Tasks">
+        <Grid Margin="14">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.15*"/>
+            <ColumnDefinition Width="1.85*"/>
+          </Grid.ColumnDefinitions>
+          <Border Classes="panel" Margin="0,0,12,0">
+            <StackPanel>
+              <TextBlock Text="Task Assistant" Classes="section-title" Margin="0,0,0,10"/>
+              <TextBlock Text="Title" Foreground="#94A3B8"/>
+              <TextBox x:Name="TaskTitleTextBox" Classes="input" Margin="0,4,0,10"/>
+              <TextBlock Text="Description" Foreground="#94A3B8"/>
+              <TextBox x:Name="TaskDescriptionTextBox" Classes="input" Margin="0,4,0,10" AcceptsReturn="True" Height="90" TextWrapping="Wrap"/>
+              <TextBlock Text="Reminder text or date" Foreground="#94A3B8"/>
+              <TextBox x:Name="TaskReminderTextBox" Classes="input" Margin="0,4,0,12"/>
+              <WrapPanel Margin="0,0,0,12">
+                <Button x:Name="AddTaskButton" Content="Add Task" Classes="button" Click="AddTaskButton_Click"/>
+                <Button x:Name="CompleteTaskButton" Content="Mark Complete" Classes="button" Click="CompleteTaskButton_Click"/>
+                <Button x:Name="DeleteTaskButton" Content="Delete Task" Classes="button" Click="DeleteTaskButton_Click"/>
+                <Button x:Name="RefreshTasksButton" Content="Refresh" Classes="button" Click="RefreshTasksButton_Click"/>
+              </WrapPanel>
+              <TextBlock Text="Tip: try commands like 'add task to enable 2FA' or 'remind me to review privacy settings in 3 days'." Foreground="#64748B" TextWrapping="Wrap"/>
+            </StackPanel>
+          </Border>
+          <Border Grid.Column="1" Classes="panel">
+            <StackPanel>
+              <TextBlock Text="Saved Tasks" Classes="section-title" Margin="0,0,0,10"/>
+              <ListBox x:Name="TaskListBox" Background="#0B1220" Foreground="#E2E8F0" BorderBrush="#334155" MinHeight="420"/>
+            </StackPanel>
+          </Border>
+        </Grid>
+      </TabItem>
+
+      <TabItem Header="Quiz">
+        <Grid Margin="14">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Border Classes="panel" Margin="0,0,0,12">
+            <StackPanel>
+              <TextBlock Text="Cybersecurity Mini-Game" Classes="section-title"/>
+              <TextBlock Text="Test your knowledge of phishing, safe browsing, passwords, and social engineering." Foreground="#CBD5E1" Margin="0,6,0,0" TextWrapping="Wrap"/>
+            </StackPanel>
+          </Border>
+          <Border Grid.Row="1" Classes="panel" Margin="0,0,0,12">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <StackPanel>
+                <TextBlock x:Name="QuizProgressTextBlock" Foreground="#94A3B8"/>
+                <TextBlock x:Name="QuizQuestionTextBlock" FontFamily="Segoe UI Semibold" FontSize="18" Foreground="#F8FAFC" TextWrapping="Wrap" Margin="0,6,0,0"/>
+              </StackPanel>
+              <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                <TextBlock x:Name="QuizScoreTextBlock" Foreground="#67E8F9" HorizontalAlignment="Right"/>
+                <Button x:Name="StartQuizButton" Content="Start Quiz" Classes="button" Click="StartQuizButton_Click" Margin="0,10,0,0"/>
+              </StackPanel>
+            </Grid>
+          </Border>
+          <Border Grid.Row="2" Classes="panel" Margin="0,0,0,12">
+            <StackPanel>
+              <RadioButton x:Name="QuizOption1Radio" Foreground="#E2E8F0" Margin="0,0,0,8"/>
+              <RadioButton x:Name="QuizOption2Radio" Foreground="#E2E8F0" Margin="0,0,0,8"/>
+              <RadioButton x:Name="QuizOption3Radio" Foreground="#E2E8F0" Margin="0,0,0,8"/>
+              <RadioButton x:Name="QuizOption4Radio" Foreground="#E2E8F0" Margin="0,0,0,8"/>
+            </StackPanel>
+          </Border>
+          <Border Grid.Row="3" Classes="panel">
+            <StackPanel>
+              <WrapPanel>
+                <Button x:Name="SubmitQuizAnswerButton" Content="Submit Answer" Classes="button" Click="SubmitQuizAnswerButton_Click"/>
+                <Button x:Name="NextQuizQuestionButton" Content="Next Question" Classes="button" Click="NextQuizQuestionButton_Click"/>
+                <Button x:Name="RestartQuizButton" Content="Restart Quiz" Classes="button" Click="RestartQuizButton_Click"/>
+              </WrapPanel>
+              <TextBlock x:Name="QuizFeedbackTextBlock" Foreground="#FDE68A" Margin="0,12,0,0" TextWrapping="Wrap"/>
+            </StackPanel>
+          </Border>
+        </Grid>
+      </TabItem>
+
+      <TabItem Header="Activity Log">
+        <Grid Margin="14">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Border Classes="panel" Margin="0,0,0,12">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <StackPanel>
+                <TextBlock Text="Activity Log" Classes="section-title"/>
+                <TextBlock Text="Recent actions from tasks, reminders, quiz attempts, and chatbot commands." Foreground="#CBD5E1" Margin="0,6,0,0" TextWrapping="Wrap"/>
+              </StackPanel>
+              <Button Grid.Column="1" x:Name="RefreshLogButton" Content="Refresh Log" Classes="button" Click="RefreshLogButton_Click"/>
+            </Grid>
+          </Border>
+          <Border Grid.Row="1" Classes="panel">
+            <ListBox x:Name="ActivityLogListBox" Background="#0B1220" Foreground="#E2E8F0" BorderBrush="#334155" MinHeight="360"/>
+          </Border>
+        </Grid>
+      </TabItem>
+    </TabControl>
+
+    <Border Grid.Row="2" Classes="panel">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="UserInputTextBox" Grid.Column="0" Margin="0,0,10,0" Classes="input" KeyDown="UserInputTextBox_KeyDown"/>
+        <Button x:Name="SendButton" Grid.Column="1" Content="Send" Classes="button" Click="SendButton_Click"/>
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

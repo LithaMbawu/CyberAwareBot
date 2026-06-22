@@ -3,9 +3,9 @@
   "tasks": [
     {
       "label": "build",
-      "command": "dotnet",
       "type": "process",
-      "args": ["build", "CyberAwareBot.csproj"],
+      "command": "dotnet",
+      "args": ["build", "CyberAwareBot/CyberAwareBot.csproj"],
       "problemMatcher": "$msCompile",
       "group": {
         "kind": "build",
