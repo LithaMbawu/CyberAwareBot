@@ -90,7 +90,7 @@ If submitting to ARC, include the above GitHub link and your YouTube demo link i
 
 ## Video Demo
 
-YouTube Video Demo: https://youtu.be/PCWVSgsUzIA?si=J9yzzO7IJ4WFapTH
+YouTube Video: https://youtu.be/W3AJZwKZO4Q?si=PFr5IhBXk7yEb55f
 
 
 ## Notes
